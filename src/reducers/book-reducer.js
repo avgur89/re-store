@@ -9,19 +9,19 @@ const initialState = {
 
 export const bookReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.BOOKS_REQUESTED:
+    case types.FETCH_BOOKS_REQUEST:
       return {
         books: [],
         loading: true,
         error: null,
       };
-    case types.BOOKS_LOADED:
+    case types.FETCH_BOOKS_SUCCESS:
       return {
         books: action.payload,
         loading: false,
         error: null,
       };
-    case types.BOOKS_ERROR:
+    case types.FETCH_BOOKS_FAILURE:
       return {
         books: [],
         loading: false,

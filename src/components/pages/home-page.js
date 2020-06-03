@@ -2,13 +2,13 @@
 import React from 'react';
 
 // Components
-import { BookList } from '../book-list';
+import { BookListContainer } from '../../containers';
 import { ShoppingCartTable } from '../shopping-cart-table';
 
 const HomePage = () => {
   return (
     <div>
-      <BookList />
+      <BookListContainer />
       <ShoppingCartTable />
     </div>
   );
