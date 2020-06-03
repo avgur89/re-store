@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { compose } from '../utils';
 
 // Actions
-import { fetchBooks } from '../actions/book-actions';
+import { fetchBooks, bookAddedToCart } from '../actions/book-actions';
 
 // Components
 import { withBookstoreService } from '../components/hoc';
@@ -20,7 +20,7 @@ class BookListContainer extends Component {
   }
 
   render() {
-    const { books, loading, error } = this.props;
+    const { books, loading, error, onAddToCart } = this.props;
 
     if (loading) {
       return <Spinner />;
@@ -30,7 +30,7 @@ class BookListContainer extends Component {
       return <ErrorIndicator />;
     }
 
-    return <BookList books={books} />;
+    return <BookList books={books} onAddToCart={onAddToCart} />;
   }
 }
 
@@ -43,6 +43,7 @@ const mapStateToProps = ({ book: { books, loading, error } }) => ({
 const mapDispatchToProps = (dispatch, { bookstoreService }) => {
   return {
     fetchBooks: fetchBooks(bookstoreService, dispatch),
+    onAddToCart: (id) => dispatch(bookAddedToCart(id)),
   };
 };
 
