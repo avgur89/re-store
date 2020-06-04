@@ -1,9 +1,11 @@
-// Core
-import { combineReducers } from 'redux';
+import { updateBookList } from './book-list';
+import { updateShoppingCart } from './shopping-cart';
 
-// Reducers
-import { bookReducer } from './book-reducer.js';
+const reducer = (state, action) => {
+  return {
+    bookList: updateBookList(state, action),
+    shoppingCart: updateShoppingCart(state, action),
+  };
+};
 
-export const rootReducer = combineReducers({
-  book: bookReducer,
-});
+export { reducer };
