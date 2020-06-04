@@ -18,6 +18,16 @@ export const bookAddedToCart = (bookId) => ({
   payload: bookId,
 });
 
+export const bookRemovedFromCart = (bookId) => ({
+  type: types.BOOK_REMOVED_FROM_CART,
+  payload: bookId,
+});
+
+export const allBooksRemovedFromCart = (bookId) => ({
+  type: types.ALL_BOOKS_REMOVED_FROM_CART,
+  payload: bookId,
+});
+
 export const fetchBooks = (bookstoreService, dispatch) => () => {
   dispatch(booksRequested());
   bookstoreService
